@@ -1,0 +1,45 @@
+﻿@model System.Collections.Generic.IEnumerable<AzureSample.Context.Models.UploadResult>
+
+@{
+    ViewBag.Title = "Upload files";
+    Layout = "_Layout";
+}
+
+
+<div class="text-center">
+    <h2>title</h2>
+    <p>All uploads file</p>
+</div>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedAt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProcessAt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Message)
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        string classStyle = item.Success ? "green" : "red";
+    <tr style="color: @classStyle">
+        <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProcessAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Message)
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
